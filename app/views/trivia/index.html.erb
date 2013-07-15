@@ -1,0 +1,29 @@
+<h1>My Favorite Trivia</h1>
+</br>
+<p><b>A list of my favorite trivia questions, answers, and their level of coolness on a scale from 1 to 10. Please feel free to contribute.</b>
+</br>Note: I do NOT guarantee that the trivia listed here are facts. #BecauseInternet</p>
+<table>
+  <tr>
+    <th>Question</th>
+    <th>Answer</th>
+    <th>Coolness</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @trivia.each do |trivium| %>
+  <tr>
+    <td><%= trivium.question %></td>
+    <td><%= trivium.answer %></td>
+    <td><%= trivium.coolness %></td>
+    <td><%= link_to 'Show', trivium %></td>
+    <td><%= link_to 'Edit', edit_trivium_path(trivium) %></td>
+    <td><%= link_to 'Destroy', trivium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Trivium', new_trivium_path %>
